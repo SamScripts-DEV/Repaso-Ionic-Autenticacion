@@ -4,6 +4,7 @@ import { Camera, CameraResultType, CameraSource } from '@capacitor/camera';
 import { AlertController, LoadingController } from '@ionic/angular';
 import { AuthService } from '../services/auth.service';
 import { AvatarService } from '../services/avatar.service';
+import { Observable } from 'rxjs';
 
 @Component({
   selector: 'app-home',
@@ -11,50 +12,50 @@ import { AvatarService } from '../services/avatar.service';
   styleUrls: ['home.page.scss'],
 })
 export class HomePage {
-
-  profile = null;
+  profile$: Observable<any | null>;  // Usamos Observable<any> sin modelo
 
   constructor(
     private avatarService: AvatarService,
-		private authService: AuthService,
-		private router: Router,
-		private loadingController: LoadingController,
-		private alertController: AlertController
+    private authService: AuthService,
+    private router: Router,
+    private loadingController: LoadingController,
+    private alertController: AlertController
   ) {
-    this.avatarService.getUserProfile().subscribe((data) => {
-			this.profile = data;
-		});
+    this.profile$ = this.avatarService.getUserProfile();  // Asignamos el observable directamente
   }
 
   async logout() {
-		await this.authService.logout();
-		this.router.navigateByUrl('/', { replaceUrl: true });
-	}
+    await this.authService.logout();
+    this.router.navigateByUrl('/', { replaceUrl: true });
+  }
 
   async changeImage() {
-		const image = await Camera.getPhoto({
-			quality: 90,
-			allowEditing: false,
-			resultType: CameraResultType.Base64,
-			source: CameraSource.Photos // Camera, Photos or Prompt!
-		});
+    try {
+      const image = await Camera.getPhoto({
+        quality: 90,
+        allowEditing: false,
+        resultType: CameraResultType.Base64,
+        source: CameraSource.Photos,
+      });
 
-		if (image) {
-			const loading = await this.loadingController.create();
-			await loading.present();
+      if (image) {
+        const loading = await this.loadingController.create();
+        await loading.present();
 
-			const result = await this.avatarService.uploadImage(image);
-			loading.dismiss();
+        const result = await this.avatarService.uploadImage(image);
+        await loading.dismiss();
 
-			if (!result) {
-				const alert = await this.alertController.create({
-					header: 'Upload failed',
-					message: 'There was a problem uploading your avatar.',
-					buttons: ['OK']
-				});
-				await alert.present();
-			}
-		}
-	}
-
+        if (!result) {
+          const alert = await this.alertController.create({
+            header: 'Upload failed',
+            message: 'There was a problem uploading your avatar.',
+            buttons: ['OK'],
+          });
+          await alert.present();
+        }
+      }
+    } catch (error) {
+      console.error('Error changing image:', error);
+    }
+  }
 }
