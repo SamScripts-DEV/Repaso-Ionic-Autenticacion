@@ -23,7 +23,12 @@ export class AvatarService {
     const storageRef = ref(this.storage, path)
 
     try {
-      await uploadString(storageRef, cameraFile.base64String, 'base64');
+      if (cameraFile.base64String) {
+        await uploadString(storageRef, cameraFile.base64String, 'base64');
+      } else {
+        
+        console.error('cameraFile.base64String is undefined');
+      }
 
       const imageUrl = await getDownloadURL(storageRef);
 
