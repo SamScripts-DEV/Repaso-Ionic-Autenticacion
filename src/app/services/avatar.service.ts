@@ -23,9 +23,17 @@ export class AvatarService {
     const storageRef = ref(this.storage, path)
 
     try {
-      await uploadString(storageRef)
+      await uploadString(storageRef, cameraFile.base64String, 'base64');
+
+      const imageUrl = await getDownloadURL(storageRef);
+
+      const userDocRef = doc(this.firestore, `users/${user?.uid}`);
+      await setDoc(userDocRef,{
+        imageUrl
+      });
+      return true;
     } catch (error) {
-      
+      return null;
     }
   }
 }
