@@ -77,3 +77,4 @@ Thumbs.db
 .runtimeconfig.json
 
 environments.ts
+.env
