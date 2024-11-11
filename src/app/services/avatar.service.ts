@@ -9,5 +9,23 @@ import {Photo} from '@capacitor/camera'
 })
 export class AvatarService {
 
-  constructor() { }
+  constructor(private  auth: Auth, private firestore: Firestore, private storage: Storage) { }
+
+  getUserProfile(){
+    const user = this.auth.currentUser
+    const userDocRef = doc(this.firestore, `users/${user?.uid}`);
+    return docData(userDocRef, {idField: 'id'})
+  }
+
+  async uploadImage(cameraFile:Photo){
+    const user = this.auth.currentUser
+    const path = `uploads/${user?.uid}/profile.webp`
+    const storageRef = ref(this.storage, path)
+
+    try {
+      await uploadString(storageRef)
+    } catch (error) {
+      
+    }
+  }
 }
