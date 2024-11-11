@@ -2,6 +2,7 @@
 # http://git-scm.com/docs/gitignore
 
 *~
+
 *.sw[mnpcod]
 .tmp
 *.tmp
@@ -33,6 +34,7 @@ log.txt
 /node_modules
 npm-debug.log
 yarn-error.log
+/environments
 
 # IDEs and editors
 .idea/
@@ -68,3 +70,10 @@ testem.log
 # System files
 .DS_Store
 Thumbs.db
+
+# Firebase
+.firebase
+*-debug.log
+.runtimeconfig.json
+
+environments.ts
