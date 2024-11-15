@@ -53,6 +53,9 @@
 ## Y me carga con el perfil anteriormente ingresado
 ![imagen](https://github.com/user-attachments/assets/f9e54d07-eda1-44e8-b30f-7caad67ed8ce)
 
+![imagen](https://github.com/user-attachments/assets/cdcb5ac2-5e74-4fb3-b2e2-e024588891cf)
+
+
 
 
 
