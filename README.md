@@ -19,6 +19,34 @@
 ### App Avatar
 ![image](https://github.com/user-attachments/assets/8ca22d42-f84a-4b51-be7a-bb5e698418d2)
 
+-----------------------------------------------
+
+### USO
+
+## Se crea un perfil
+![imagen](https://github.com/user-attachments/assets/559d4998-d00e-4af3-816f-878dbbcf4432)
+
+![imagen](https://github.com/user-attachments/assets/b251abb4-9c10-4fc7-9d74-5c6ef9499e29)
+
+
+## Se carga un avatar
+![imagen](https://github.com/user-attachments/assets/4f62fbef-3431-49b6-a421-924e01412fe5)
+
+![imagen](https://github.com/user-attachments/assets/4b9bc874-98b1-4594-b425-55490c670b54)
+
+
+## Esto se guarda en firebase
+![imagen](https://github.com/user-attachments/assets/e8d67dcb-8943-4e01-be18-6aa81bbe9eb1)
+
+![imagen](https://github.com/user-attachments/assets/2322c495-7c7c-4b0a-ad1d-124367ba1927)
+
+![imagen](https://github.com/user-attachments/assets/e397e202-bdfe-4172-9a42-7f2b401b32f4)
+
+
+
+
+
+
 ## APK
 
 
