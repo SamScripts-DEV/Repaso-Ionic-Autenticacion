@@ -19,7 +19,7 @@ import { getApp } from '@angular/fire/app';
 @NgModule({
   declarations: [AppComponent],
   imports: [BrowserModule, IonicModule.forRoot(), AppRoutingModule],
-  providers: [{ provide: RouteReuseStrategy, useClass: IonicRouteStrategy }, provideFirebaseApp(() => initializeApp(environment.firebaseconfig)), provideAuth(() =>{
+  providers: [{ provide: RouteReuseStrategy, useClass: IonicRouteStrategy }, provideFirebaseApp(() => initializeApp(environment.firebase)), provideAuth(() =>{
     if (Capacitor.isNativePlatform()){
       return initializeAuth(getApp(), {
         persistence: indexedDBLocalPersistence

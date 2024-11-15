@@ -12,7 +12,7 @@ import { Observable } from 'rxjs';
   styleUrls: ['home.page.scss'],
 })
 export class HomePage {
-  profile$: Observable<any | null>;  // Usamos Observable<any> sin modelo
+  profile$: Observable<any | null>;  
 
   constructor(
     private avatarService: AvatarService,
@@ -21,7 +21,7 @@ export class HomePage {
     private loadingController: LoadingController,
     private alertController: AlertController
   ) {
-    this.profile$ = this.avatarService.getUserProfile();  // Asignamos el observable directamente
+    this.profile$ = this.avatarService.getUserProfile();  
   }
 
   async logout() {
