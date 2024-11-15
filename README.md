@@ -45,9 +45,15 @@
 
 
 
-
-
 ## APK
+
+## Se puede ingresar por la apk
+![imagen](https://github.com/user-attachments/assets/6ea3d167-810d-4316-a195-1ef78c42af40)
+
+## Y me carga con el perfil anteriormente ingresado
+![imagen](https://github.com/user-attachments/assets/f9e54d07-eda1-44e8-b30f-7caad67ed8ce)
+
+
 
 
 
